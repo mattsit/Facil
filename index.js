@@ -20,6 +20,8 @@ const
 
 var properties = require('properties');
 var nlu = require('./nlu.js');
+
+var n = new nlu();
 properties.parse("./watson_creds.properties", { path: true, sections: true }, function (error, obj) {
   if (error) return console.error (error);
 
