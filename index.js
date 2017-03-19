@@ -246,7 +246,7 @@ function receivedMessage(event) {
   var messageAttachments = message.attachments;
   var quickReply = message.quick_reply;
 
-  var classifier = n.analyze_text(messageText, (result) => { console.log("classify test: " + JSON.stringify(result, null, 2)); }); 
+  var classifier = n.analyze_text(messageText, (result) => { console.log("classify test: " + JSON.stringify(result, null, 2)); });
 
   if (isEcho) {
     // Just logging message echoes to console
@@ -556,8 +556,8 @@ function sendTextMessage(recipientId, messageText) {
             callSendAPI(messageData);
 
       });
-    });
-}
+    };
+
 
 /*
  * Send a button message using the Send API.
