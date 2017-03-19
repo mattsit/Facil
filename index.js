@@ -249,8 +249,8 @@ function receivedMessage(event) {
   var messageAttachments = message.attachments;
   var quickReply = message.quick_reply;
 
-  var classifier = n.analyze_text(messageText, function(result) 
-    { 
+  var classifier = n.analyze_text(messageText, function(result)
+    {
       if (result.length == 0) {
         sendInvalidMessage(senderID);
         return;
@@ -279,7 +279,6 @@ function receivedMessage(event) {
     // If we receive a text message, check to see if it matches any special
     // keywords and send back the corresponding example. Otherwise, just echo
     // the text we received.
-      default:
         sendTextMessage(senderID, messageText);
     }
   } else if (messageAttachments) {
@@ -303,7 +302,7 @@ function formatReply(sid, kw) {
   }
 
   sendTextMessage(sid, text);
-} 
+}
 
 /*
  * Delivery Confirmation Event
