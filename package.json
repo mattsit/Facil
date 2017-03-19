@@ -9,6 +9,7 @@
     "ejs": "^2.5.6",
     "express": "^4.15.2",
     "express-x-hub": "^1.0.4",
+    "oauth": "^0.9.15",
     "properties": "^1.2.1",
     "watson-developer-cloud": "^2.27.0"
   },
