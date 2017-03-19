@@ -1,9 +1,21 @@
 var NaturalLanguageUnderstandingV1 = require('watson-developer-cloud/natural-language-understanding/v1.js');
 var properties = require('properties');
 
+var nlu_user = "PLACEHOLDER";
+var nlu_pass = 'PLACEHOLDER';
+
+properties.parse("./watson_creds.properties", { path : true, sections: true }, function (error, obj) {
+  if (error) return console.error (error);
+  console.log(obj.nlu.username); 
+
+  nlu_user = obj.nlu.username;
+  nlu_pass = obj.nlu.password;
+});
+
+console.log("asdf " + nlu_user);
 var natural_language_understanding = new NaturalLanguageUnderstandingV1({
-  'username': 'c9c50d09-6398-4399-95f8-f06c2f8b721c',
-  'password': 'bbEzLnHarKIG',
+  'username': nlu_user,
+  'password': nlu_pass,
   'version_date': '2017-02-27'
 });
 
@@ -18,6 +30,7 @@ var parameters = {
   }
 }
 
+console.log(nlu_user);
 natural_language_understanding.analyze(parameters, function(err, response) {
   if (err)
     console.log('error:', err);
