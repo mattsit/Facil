@@ -278,6 +278,8 @@ function formatReply(sid, kw) {
     case 'eat':
     case 'eating':
     case 'hungry':
+    case 'food':
+    case 'snack':
       text = cr.sendMealMessage();
       break;
     case 'study':
@@ -287,6 +289,10 @@ function formatReply(sid, kw) {
     case 'class':
     case 'project':
     case 'library':
+    case 'midterm':
+    case 'final exam':
+    case 'midterms':
+    case 'final exams':
       text = cr.sendStudyMessage();
       break;
     case 'hangout':
