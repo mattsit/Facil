@@ -301,6 +301,7 @@ function formatReply(sid, kw) {
       break;
     case 'board':
     case 'games':
+    case 'board games':
       text = cr.sendBoardGameMessage();
       break;
     case 'sports':
