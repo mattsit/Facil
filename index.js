@@ -25,8 +25,8 @@ var n = new nlu();
 properties.parse("./watson_creds.properties", { path: true, sections: true }, function (error, obj) {
   if (error) return console.error (error);
 
-  nlu_user = obj.nlu.username;
-  nlu_pass = obj.nlu.password;
+  var nlu_user = obj.nlu.username;
+  var nlu_pass = obj.nlu.password;
 
   n.init(nlu_user, nlu_pass);
 });
