@@ -292,7 +292,6 @@ function formatReply(sid, kw) {
     case 'date':
     case 'go':
     case 'fun':
-    case 'place':
     case 'event':
       text = cr.sendHangoutMessage();
       break;
