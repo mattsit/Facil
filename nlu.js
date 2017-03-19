@@ -1,46 +1,41 @@
 var NaturalLanguageUnderstandingV1 = require('watson-developer-cloud/natural-language-understanding/v1.js');
-var properties = require('properties');
 
-var nlu_user = 'PLACEHOLDER';
-var nlu_pass = 'PLACEHOLDER';
-var options = {
-  path: true,
-  sections: true,
-}
+module.exports = function() {
+  this.nlu = null;
+  this.nlu_ready = false;
 
-properties.parse("./watson_creds.properties", options, function (error, obj) {
-  if (error) return console.error (error);
-  console.log(obj);
+  this.init = function(user, pass) {
+    this.nlu = new NaturalLanguageUnderstandingV1({
+      'username': user,
+      'password': pass,
+      'version_date': '2017-02-27'
+    });
 
-  nlu_user = obj.nlu.username;
-  nlu_pass = obj.nlu.password;
+    this.nlu_ready = true;
+  }
+  
+  this.analyze_text = function(str, cb) {
+    if (!this.nlu_ready) {
+      console.error("NLU not initialized");
+      return "";
+    }
 
-  test_nlu();
-});
-
-
-function test_nlu() {
-  console.log (nlu_user);
-  var natural_language_understanding = new NaturalLanguageUnderstandingV1({
-    'username': nlu_user,
-    'password': nlu_pass,
-    'version_date': '2017-02-27'
-  });
-
-  var parameters = {
-    'text': 'Do you want to get food?',
-    'features': {
-      'keywords': {
-        'emotion': false,
-        'sentiment': false,
-        'limit': 2
+    var parameters = {
+      'text': str,
+      'features': {
+        'keywords': {
+          'limit': 2
+        }
       }
     }
+
+    this.nlu.analyze(parameters, function(err, resp) {
+      if (err) {
+        console.error(err);
+        return "";
+      }
+      cb(resp);
+    });
   }
-  natural_language_understanding.analyze(parameters, function(err, response) {
-    if (err)
-      console.log('error:', err);
-    else
-      console.log(JSON.stringify(response, null, 2));
-  });
 }
+
