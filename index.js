@@ -524,6 +524,16 @@ function sendTextMessage(recipientId, messageText) {
         res.on('data', (d) => {
             console.log(d);
             process.stdout.write(d);
+            let rawData = '';
+  res.on('data', (chunk) => rawData += chunk);
+  res.on('end', () => {
+    try {
+      let parsedData = JSON.parse(rawData);
+      console.log(parsedData);
+    } catch (e) {
+      console.log(e.message);
+    }
+  });
             var messageData = {
               recipient: {
                 id: recipientId
