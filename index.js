@@ -534,19 +534,16 @@ function sendFileMessage(recipientId) {
 function sendTextMessage(recipientId, messageText) {
     var url = 'https://graph.facebook.com/v2.6/'+recipientId+'?fields=first_name&access_token='+PAGE_ACCESS_TOKEN;
     https.get(url, (res) => {
-        res.on('data', (d) => {
-            console.log(d);
-            process.stdout.write(d);
-            let rawData = '';
-  res.on('data', (chunk) => rawData += chunk);
-  res.on('end', () => {
-    try {
-      let parsedData = JSON.parse(rawData);
-      console.log(parsedData);
-    } catch (e) {
-      console.log(e.message);
-    }
-  });
+          let rawData = '';
+          res.on('data', (chunk) => rawData += chunk);
+          res.on('end', () => {
+            try {
+              let parsedData = JSON.parse(rawData);
+              console.log("GOOD DATA FROM FB: ", parsedData);
+            } catch (e) {
+              console.log(e.message);
+            }
+          });
             var messageData = {
               recipient: {
                 id: recipientId
@@ -559,13 +556,7 @@ function sendTextMessage(recipientId, messageText) {
             callSendAPI(messageData);
 
       });
-
-
-
     });
-
-
-
 }
 
 /*

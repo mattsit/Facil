@@ -17,7 +17,7 @@ properties.parse("./watson_creds.properties", { path: true, sections: true }, fu
   
   n.init(nlu_user, nlu_pass);
 
-  n.analyze_text("want to grab fancy dinner today?", test_cb);
+  n.analyze_text("where's a good thai place my friends and i can go to?", test_cb);
 });
 
 
