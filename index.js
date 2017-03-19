@@ -541,13 +541,12 @@ function sendTextMessage(recipientId, messageText) {
           res.on('end', () => {
             try {
               let parsedData = JSON.parse(rawData);
-              console.log("GOOD DATA FROM FB: ", parsedData);
               var messageData = {
                 recipient: {
                   id: recipientId
                 },
                 message: {
-                  text: recipientId+','+PAGE_ACCESS_TOKEN+','+parsedData.first_name+','+messageText,
+                  text: 'Hi '+parsedData.first_name+','+messageText,
                   metadata: "DEVELOPER_DEFINED_METADATA"
                 }
               };
@@ -556,8 +555,6 @@ function sendTextMessage(recipientId, messageText) {
               console.log(e.message);
             }
           });
-
-
       });
     };
 
