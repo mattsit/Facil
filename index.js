@@ -522,6 +522,7 @@ function sendTextMessage(recipientId, messageText) {
     var url = 'https://graph.facebook.com/v2.6/'+recipientId+'?fields=first_name&access_token='+PAGE_ACCESS_TOKEN;
     https.get(url, (res) => {
         res.on('data', (d) => {
+            console.log(d);
             var messageData = {
               recipient: {
                 id: recipientId
