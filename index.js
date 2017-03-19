@@ -299,6 +299,17 @@ function formatReply(sid, kw) {
     case 'music':
       text = cr.sendConcertMessage();
       break;
+    case 'board':
+    case 'games':
+      text = cr.sendBoardGameMessage();
+    case 'sports':
+    case 'exercise':
+      text = cr.sendPlaySportsMessage();
+    case 'movies':
+    case 'movie':
+    case 'theatre':
+    case 'theater':
+      text = cr.sendMoviesMessage();
     default:
       text = "Sorry! I couldn't recognize that message."
   }
