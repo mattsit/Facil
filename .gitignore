@@ -5,4 +5,4 @@ node_modules
 .npm
 *.dat
 
-./watson_creds.properties
+watson_creds.properties

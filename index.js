@@ -18,6 +18,17 @@ const
   https = require('https'),
   request = require('request');
 
+var properties = require('properties');
+var nlu = require('./nlu.js');
+properties.parse("./watson_creds.properties", { path: true, sections: true }, function (error, obj) {
+  if (error) return console.error (error);
+
+  nlu_user = obj.nlu.username;
+  nlu_pass = obj.nlu.password;
+  
+  n.init(nlu_user, nlu_pass);
+});
+
 var app = express();
 app.set('port', process.env.PORT || 5000);
 app.set('view engine', 'ejs');
@@ -234,6 +245,8 @@ function receivedMessage(event) {
   var messageText = message.text;
   var messageAttachments = message.attachments;
   var quickReply = message.quick_reply;
+
+  var classifier = n.analyze_text(messageText, function(result) => { console.log("classify test: " + JSON.stringify(result, null, 2)); }); 
 
   if (isEcho) {
     // Just logging message echoes to console
