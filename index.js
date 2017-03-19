@@ -275,17 +275,6 @@ function receivedMessage(event) {
     return;
   }
 
-  if (messageText) {
-    // If we receive a text message, check to see if it matches any special
-    // keywords and send back the corresponding example. Otherwise, just echo
-    // the text we received.
-        sendTextMessage(senderID, messageText);
-    }
-  } else if (messageAttachments) {
-    sendTextMessage(senderID, "Message with attachment received");
-  }
-}
-
 function sendInvalidMessage(sid) {
   sendTextMessage(sid, "Sorry! I couldn't recognize that phrase. Try again?");
 }
