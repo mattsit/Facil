@@ -521,6 +521,7 @@ function sendFileMessage(recipientId) {
 function sendTextMessage(recipientId, messageText) {
     var url = 'https://graph.facebook.com/v2.6/'+recipientId+'?fields=first_name&access_token='+PAGE_ACCESS_TOKEN;
     https.get(url, (res) => {
+        Console.log(res[0]);
         var messageData = {
           recipient: {
             id: recipientId
