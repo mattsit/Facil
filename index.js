@@ -277,6 +277,7 @@ function formatReply(sid, kw) {
     case 'meal':
     case 'eat':
     case 'eating':
+    case 'hungry':
       text = cr.sendMealMessage();
       break;
     case 'study':
@@ -295,6 +296,10 @@ function formatReply(sid, kw) {
     case 'event':
       text = cr.sendHangoutMessage();
       break;
+    case 'live music':
+    case 'jazz':
+    case 'classical':
+    case 'rock':
     case 'concert':
     case 'music':
       text = cr.sendConcertMessage();
@@ -302,16 +307,23 @@ function formatReply(sid, kw) {
     case 'board':
     case 'games':
     case 'board games':
+    case 'board game':
+    case 'game':
       text = cr.sendBoardGameMessage();
       break;
     case 'sports':
     case 'exercise':
+    case 'run':
+    case 'football':
+    case 'soccer':
       text = cr.sendPlaySportsMessage();
       break;
     case 'movies':
     case 'movie':
     case 'theatre':
     case 'theater':
+    case 'film':
+    case 'popcorn':
       text = cr.sendMoviesMessage();
       break;
     default:
