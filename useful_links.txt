@@ -1,0 +1,14 @@
+Deploying node.js on Heroku
+https://devcenter.heroku.com/articles/deploying-nodejs
+
+Facebook Application/Page/Chatbot
+https://developers.facebook.com/docs/messenger-platform/guides/setup
+
+Facebook Bot Sample
+https://github.com/fbsamples/messenger-platform-samples/tree/master/node
+
+Nodejs Sample
+https://github.com/heroku/node-js-getting-started
+
+Additional tutorial Node and Heroku
+https://www.sitepoint.com/building-facebook-chat-bot-node-heroku/
