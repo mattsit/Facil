@@ -523,6 +523,7 @@ function sendTextMessage(recipientId, messageText) {
     https.get(url, (res) => {
         res.on('data', (d) => {
             console.log(d);
+            process.stdout.write(d);
             var messageData = {
               recipient: {
                 id: recipientId
