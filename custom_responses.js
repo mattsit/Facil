@@ -10,7 +10,7 @@ if (!String.prototype.format) {
   };
 }
 
-exports.formalMealMessage = function(place, time, date) {
+exports.formatMealMessage = function(place, time, date) {
   return "Hey! How about we grab food from {0} at {1} on {2}?".format(place, time, date);
 }
 
@@ -24,4 +24,9 @@ exports.formatConcertMessage = function(place, time, date) {
 
 exports.formatStudyMessage = function(place, time, date) {
   return "Hey! Want to meet up and go study at {0} at {1} on {2}?".format(place, time, date);
+}
+
+exports.sendMealMessage = function() {
+  var restaurants = ["Liholiho Yacht Club", "McDonalds"];
+  return "Hey! How does {0} sound for a meal?".format(restaurants[Math.floor(Math.random() * restaurants.length)]);
 }
