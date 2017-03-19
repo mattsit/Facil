@@ -17,7 +17,7 @@ module.exports = function() {
   this.analyze_text = function(str, cb) {
     if (!this.nlu_ready) {
       console.error("NLU not initialized");
-      return "";
+      return null;
     }
 
     var parameters = {
@@ -32,7 +32,7 @@ module.exports = function() {
     this.nlu.analyze(parameters, function(err, resp) {
       if (err) {
         console.error(err);
-        return "";
+        return null;
       }
       cb(resp);
     });

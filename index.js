@@ -251,12 +251,13 @@ function receivedMessage(event) {
 
   var classifier = n.analyze_text(messageText, function(result)
     {
-      if (result.length == 0) {
+      if (result == null) {
         sendInvalidMessage(senderID);
         return;
       }
-      for (var i = 0; i < result.keywords.length; i++) {
-        var kw = result.keywords[i].text;
+
+      if (result.keywords != null && results.keywords.length > 0) {
+        var kw = result.keywords[0].text;
         formatReply(senderID, kw);
       }
       console.log("classify test: " + JSON.stringify(result, null, 2));
