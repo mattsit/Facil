@@ -13,7 +13,7 @@ Follow the [walk-through](https://developers.facebook.com/docs/messenger-platfor
 
 ## Setup
 
-Set the values in `app.json` before running the sample. Descriptions of each parameter can be found in `index.js`. Alternatively, you can set the corresponding environment variables as defined in `index.js`.
+Set the values in `config/config.json` before running the sample. Descriptions of each parameter can be found in `index.js`. Alternatively, you can set the corresponding environment variables as defined in `index.js`.
 
 Replace values for `APP_ID` and `PAGE_ID` in `public/index.html`.
 

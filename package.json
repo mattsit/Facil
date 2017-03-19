@@ -1,31 +1,25 @@
 {
-  "name": "Facil",
+  "name": "facil",
   "version": "1.0.0",
-  "description": "Facil for Facebook Messenger. Forked from https://github.com/fbsamples/messenger-platform-samples.",
+  "description": "Facil for Facebook Messenger.",
   "main": "index.js",
-  "scripts": {
-    "start": "node heroku/index.js"
-  },
   "dependencies": {
-    "body-parser": "~1.15.0",
-    "express": "~4.13.3",
-    "express-x-hub": "^1.0.4",
-    "properties": "^1.2.1",
-    "watson-developer-cloud": "^2.27.0"
+    "body-parser": "^1.17.1",
+    "ejs": "^2.5.6",
+    "express": "^4.15.2",
+    "express-x-hub": "^1.0.4"
   },
-  "engines": {
-    "node": "0.12.7"
+  "devDependencies": {},
+  "scripts": {
+    "test": "start: node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/fbsamples/graph-api-webhooks-samples"
+    "url": "https://www.github.com/mattsit/Facil"
   },
   "keywords": [
-    "node",
-    "heroku",
-    "express",
-    "graph api"
+    "facil"
   ],
-  "license": "https://github.com/fbsamples/graph-api-webhooks-samples/blob/master/LICENSE",
-  "bugs": "https://github.com/fbsamples/graph-api-webhooks-samples/issues"
+  "author": "Matthew Sit, Daniel Hong, Daniel Lin",
+  "license": "UNLICENSED"
 }
