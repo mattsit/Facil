@@ -274,7 +274,30 @@ function formatReply(sid, kw) {
     case 'lunch':
     case 'dinner':
     case 'meal':
+    case 'eat':
+    case 'eating':
       text = cr.sendMealMessage();
+      break;
+    case 'study':
+    case 'exam':
+    case 'homework':
+    case 'work':
+    case 'class':
+    case 'project':
+    case 'library':
+      text = cr.sendStudyMessage();
+      break;
+    case 'hangout':
+    case 'date':
+    case 'go':
+    case 'fun':
+    case 'place':
+    case 'event':
+      text = cr.sendHangoutMessage();
+      break;
+    case 'concert':
+    case 'music':
+      text = cr.sendConcertMessage();
       break;
     default:
       text = "Sorry! I couldn't recognize that message."
