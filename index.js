@@ -519,14 +519,13 @@ function sendFileMessage(recipientId) {
  *
  */
 function sendTextMessage(recipientId, messageText) {
-    var url = 'https://graph.facebook.com/v2.6/'+recipientId+'_?access_token='+PAGE_ACCESS_TOKEN;
-    https.get(url, (res) => {
+    https.get('https://graph.facebook.com/v2.6/'+recipientId+'?fields=first_name&access_token='+PAGE_ACCESS_TOKEN, (res) => {
         var messageData = {
           recipient: {
             id: recipientId
           },
           message: {
-            text: res.first_name+', '+messageText,
+            text: recipientId+','+PAGE_ACCESS_TOKEN+','+res.first_name+','+res+','+res['first_name']+', '+messageText,
             metadata: "DEVELOPER_DEFINED_METADATA"
           }
         };
