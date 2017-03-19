@@ -27,6 +27,24 @@ exports.formatStudyMessage = function(place, time, date) {
 }
 
 exports.sendMealMessage = function() {
-  var restaurants = ["Liholiho Yacht Club", "McDonalds"];
-  return "Hey! How does {0} sound for a meal?".format(restaurants[Math.floor(Math.random() * restaurants.length)]);
+  var restaurants = ["Liholiho Yacht Club", "McDonalds", "La Taqueria", "Seven Hills",
+  "Boulevard", "Super Duper Burgers", "Crepevine", "Fentons", "Daimo", "Fuddruckers",
+  "Panda Express", "T4", "ShareTea", "La Note", "Barney's"];
+  return "Hey! How does going to {0} to eat sound?".format(restaurants[Math.floor(Math.random() * restaurants.length)]);
+}
+
+exports.sendHangoutMessage = function() {
+  var hangoutLocations = ["Golfland USA", "Ocean Beach", "Alcatraz Island", "Disneyland",
+  "Japantown", "Sharks Ice"];
+  return "Hey! How does hanging out at {0} sound?".format(hangoutLocations[Math.floor(Math.random() * hangoutLocations.length)]);
+}
+
+exports.sendConcertMessage = function() {
+  var concertLocations = ["The San Francisco Symphony", "Ed Sheeran", "Justin Bieber", "Taylor Swift"];
+  return "Hey! Why don't we go and watch {0} perform?".format(concertLocations[Math.floor(Math.random() * concertLocations.length)]);
+}
+
+exports.sendStudyMessage = function() {
+  var studyLocations = ["Main Stacks", "Library Doe", "Moffitt", "Soda Hall", "Crossroads"];
+  return "Hey! Why don't we go to {0} to study?".format(studyLocations[Math.floor(Math.random() * studyLocations.length)]);
 }
