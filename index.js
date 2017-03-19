@@ -256,7 +256,7 @@ function receivedMessage(event) {
         return;
       }
 
-      if (result.keywords != null && results.keywords.length > 0) {
+      if (result.keywords != null && result.keywords.length > 0) {
         var kw = result.keywords[0].text;
         formatReply(senderID, kw);
       }
