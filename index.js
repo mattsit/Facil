@@ -261,19 +261,7 @@ function receivedMessage(event) {
       }
       console.log("classify test: " + JSON.stringify(result, null, 2));
     });
-
-  if (isEcho) {
-    console.log("Received echo for message %s and app %d with metadata %s",
-      messageId, appId, metadata);
-    return;
-  } else if (quickReply) {
-    var quickReplyPayload = quickReply.payload;
-    console.log("Quick reply for message %s with payload %s",
-      messageId, quickReplyPayload);
-
-    sendTextMessage(senderID, "Quick reply tapped");
-    return;
-  }
+}
 
 function sendInvalidMessage(sid) {
   sendTextMessage(sid, "Sorry! I couldn't recognize that phrase. Try again?");
@@ -282,6 +270,8 @@ function sendInvalidMessage(sid) {
 function formatReply(sid, kw) {
   var text = "";
   switch (kw) {
+    case 'breakfast':
+    case 'lunch':
     case 'dinner':
     case 'meal':
       text = cr.sendMealMessage();
