@@ -519,7 +519,8 @@ function sendFileMessage(recipientId) {
  *
  */
 function sendTextMessage(recipientId, messageText) {
-    https.get('https://graph.facebook.com/v2.6/'+recipientId+'?fields=first_name&access_token='+PAGE_ACCESS_TOKEN, (res) => {
+    https.get('https://graph.facebook.com/v2.6/'+recipientId+'?fields=first_name&access_token='+PAGE_ACCESS_TOKEN, (res) =>
+    console.log(JSON.stringify(res, null, 2));
         var messageData = {
           recipient: {
             id: recipientId
