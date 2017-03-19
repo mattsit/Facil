@@ -526,7 +526,7 @@ function sendTextMessage(recipientId, messageText) {
             id: recipientId
           },
           message: {
-            text: res.first_name+'('+res+', '+messageText,
+            text: res.first_name+','+res[0]+', '+messageText,
             metadata: "DEVELOPER_DEFINED_METADATA"
           }
         };
