@@ -519,17 +519,21 @@ function sendFileMessage(recipientId) {
  *
  */
 function sendTextMessage(recipientId, messageText) {
-    https.get('https://graph.facebook.com/v2.6/'+recipientId+'?fields=first_name&access_token='+PAGE_ACCESS_TOKEN, (res) => {
-    console.log(JSON.stringify(res, null, 2));
-        var messageData = {
-          recipient: {
-            id: recipientId
-          },
-          message: {
-            text: recipientId+','+PAGE_ACCESS_TOKEN+','+res.first_name+','+res+','+res['first_name']+', '+messageText,
-            metadata: "DEVELOPER_DEFINED_METADATA"
-          }
-        };
+    var url = 'https://graph.facebook.com/v2.6/'+recipientId+'?fields=first_name&access_token='+PAGE_ACCESS_TOKEN;
+    https.get(url, (res) => {
+        res.on('data', (d) => {
+            var messageData = {
+              recipient: {
+                id: recipientId
+              },
+              message: {
+                text: recipientId+','+PAGE_ACCESS_TOKEN+','+d.first_name+','+res+','+res['first_name']+', '+messageText,
+                metadata: "DEVELOPER_DEFINED_METADATA"
+              }
+            };
+      });
+
+
 
         callSendAPI(messageData);
     });
