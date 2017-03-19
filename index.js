@@ -542,20 +542,21 @@ function sendTextMessage(recipientId, messageText) {
             try {
               let parsedData = JSON.parse(rawData);
               console.log("GOOD DATA FROM FB: ", parsedData);
+              var messageData = {
+                recipient: {
+                  id: recipientId
+                },
+                message: {
+                  text: recipientId+','+PAGE_ACCESS_TOKEN+','+parsedData.first_name+','+messageText,
+                  metadata: "DEVELOPER_DEFINED_METADATA"
+                }
+              };
+              callSendAPI(messageData);
             } catch (e) {
               console.log(e.message);
             }
           });
-            var messageData = {
-              recipient: {
-                id: recipientId
-              },
-              message: {
-                text: recipientId+','+PAGE_ACCESS_TOKEN+','+res.first_name+','+messageText,
-                metadata: "DEVELOPER_DEFINED_METADATA"
-              }
-            };
-            callSendAPI(messageData);
+
 
       });
     };
