@@ -5,6 +5,10 @@ var n = new nlu();
 var nlu_user;
 var nlu_pass;
 
+function test_cb(res) {
+  console.log(JSON.stringify(res, null, 2));
+}
+
 properties.parse("./watson_creds.properties", { path: true, sections: true }, function (error, obj) {
   if (error) return console.error (error);
 
@@ -13,7 +17,7 @@ properties.parse("./watson_creds.properties", { path: true, sections: true }, fu
   
   n.init(nlu_user, nlu_pass);
 
-  n.analyze_text("i hate people who say one two three", (resp) => {console.log(JSON.stringify(resp, null, 2))});
+  n.analyze_text("want to grab fancy dinner today?", test_cb);
 });
 
 
